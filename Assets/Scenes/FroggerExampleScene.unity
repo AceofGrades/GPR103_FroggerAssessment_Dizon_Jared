@@ -1170,7 +1170,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 8090335375369496866, guid: 5f5041569ea0b9b479219eff29f049c5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1284,7 +1284,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 50
   m_Sprite: {fileID: 5546671543968653177, guid: 5f5041569ea0b9b479219eff29f049c5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1332,6 +1332,7 @@ MonoBehaviour:
   isInWater: 0
   jumpSound: {fileID: 8300000, guid: 636d8cdd4f5f80c468c40a11288427ec, type: 3}
   deathSound: {fileID: 8300000, guid: 73c5f3d896c2c0d4fa3d39da5b2c76d6, type: 3}
+  bonusSound: {fileID: 8300000, guid: 3efd0add85cdfca45b24b715a4c88b72, type: 3}
   explosionFX: {fileID: 2528033506303444654, guid: 123d0688aac54414885b15adf037a043,
     type: 3}
 --- !u!61 &1437505638
@@ -1828,7 +1829,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 8090335375369496866, guid: 5f5041569ea0b9b479219eff29f049c5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1989,6 +1990,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5169948559849797440, guid: 24e4a664942b3f6418fa81e3d43e914f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5169948559849797441, guid: 24e4a664942b3f6418fa81e3d43e914f,
         type: 3}
       propertyPath: m_Name
