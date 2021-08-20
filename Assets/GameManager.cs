@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This script is to be attached to a GameObject called GameManager in the scene. It is to be used to manager the settings and overarching gameplay loop.
@@ -27,6 +28,15 @@ public class GameManager : MonoBehaviour
     [Header("Effects")]
     public GameObject bonusCollectEffect;
 
+    [Header("Game Over UI")]
+    public TMP_Text gameOverMessage;
+    public UIManager myUI;
+
+    public void Awake()
+    {
+        myUI = FindObjectOfType<UIManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,5 +60,18 @@ public class GameManager : MonoBehaviour
     {
         UpdateScore(amount);
         Instantiate(bonusCollectEffect, pos, Quaternion.identity);
+    }
+
+    public void GameOver(bool isWin)
+    {
+        if(isWin == true)
+        {
+            gameOverMessage.text = "Congratulations. You won.";
+        }
+        else
+        {
+            gameOverMessage.text = "Oh no, you lost...";
+        }
+        myUI.uiGameOverWindow.SetActive(true);
     }
 }

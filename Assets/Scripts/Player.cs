@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShortcutManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This script must be used as the core Player script for managing the player character in the game.
@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     private GameManager myGameManager; //A reference to the GameManager in the scene.
     private AudioSource myAudioSource;
+    public UIManager myUI;
 
     // Audio
     public AudioClip jumpSound;
@@ -101,6 +102,14 @@ public class Player : MonoBehaviour
                 myAudioSource.PlayOneShot(bonusSound);
                 Destroy(collision.gameObject);
             }
+            else if(collision.transform.tag == "EndZone")
+            {
+                myUI.uiWinMessage.SetActive(true);
+                GetComponent<SpriteRenderer>().enabled = false;
+                playerIsAlive = false;
+                playerCanMove = false;
+                print("Congratulations. You won!");
+            }
         }
     }
 
@@ -127,6 +136,7 @@ public class Player : MonoBehaviour
         Instantiate(explosionFX, transform.position, Quaternion.identity);
         playerIsAlive = false;
         playerCanMove = false;
+        myUI.uiGameOverWindow.SetActive(true);
         print("Frog go splat");
     }
 }
